@@ -13,21 +13,56 @@ body {
 
 .form {
   background-color: antiquewhite;
-  height: 50vh;
   width: 100vh;
   margin-top: 20vh;
   border-radius: 2vh;
   display: flex;
-  direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 1em;
+  h3 {
+    margin-top: 0px;
+  }
+}
+
+.wavebg {
+  aspect-ratio: 960/150;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.wave {
+  background-image: url("./SVGs/waves.svg");
+  animation: movewave 10s linear infinite;
+}
+
+.navbar-link {
+  color: rgba(0, 0, 0, 0.516);
+  text-decoration: None;
+  font-size: 1.2em;
+  :hover {
+    color: rgba(255, 255, 255, 0.507);
+    transform: scale(1.2);
+  }
 }
 
 .formdiv {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@keyframes movewave {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -50vw;
+  }
 }
 
 @keyframes gradient {
@@ -39,12 +74,5 @@ body {
   }
   100% {
     background-position: 0% 50%;
-  }
-}
-
-.navbaricon {
-  margin-left: 2vh;
-  :hover {
-    transform: scale(2);
   }
 }
