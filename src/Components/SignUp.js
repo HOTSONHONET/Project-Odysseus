@@ -45,7 +45,7 @@ export default function SigUp() {
 
 	return (
 		<div className='formdiv'>
-			<div className="form" style={{ height: "65vh" }}>
+			<div className="form corner-bg" style={{ height: "65vh" }}>
 				<h3>Sign up</h3>
 				<TextField
 					id="outlined-name"

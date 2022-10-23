@@ -4,10 +4,8 @@ import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { Button, OutlinedInput } from '@mui/material';
-import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
-import DangerousIcon from '@mui/icons-material/Dangerous';
-import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
+import { useNavigate, Link } from 'react-router-dom';
 
 
 export default function Login() {
@@ -37,13 +35,16 @@ export default function Login() {
     event.preventDefault();
   };
 
+  let navigate = useNavigate();
   const handleFormSubmit = () => {
+    navigate("/");
 
   }
 
+
   return (
-    <div className='formdiv'>
-      <div className="form" style={{ height: "50vh" }}>
+    <div className='formdiv mt-0'>
+      <div className="form corner-bg" style={{ height: "50vh" }}>
         <h3>Login</h3>
         <TextField
           id="outlined-email"
@@ -52,6 +53,7 @@ export default function Login() {
           className="mb-3 w-50"
           value={values.email}
           onChange={handleChange('email')}
+          type="email"
 
         />
         <TextField

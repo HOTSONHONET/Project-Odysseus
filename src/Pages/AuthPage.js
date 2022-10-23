@@ -1,5 +1,6 @@
 import React from 'react'
 import Login from "../Components/Login"
+import Navbar from '../Components/Navbar';
 import SignUp from "../Components/SignUp"
 
 export default function AuthPage() {
