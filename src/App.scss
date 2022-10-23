@@ -1,14 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Ubuntu", sans-serif;
+}
+
 body {
-  background: linear-gradient(-45deg, #db4675, #6a3ce7, #b728cd, #23d5ab);
+  background: linear-gradient(-45deg, #1c009996, #11023b, #43004d, #002233);
+  // background-color: #002233;
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  animation: movesidewise 15s ease infinite;
   height: 100vh;
 }
 
 .formbg {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  animation: movesidewise 15s ease infinite;
 }
 
 .form {
@@ -36,7 +43,7 @@ body {
 
 .wave {
   background-image: url("./SVGs/waves.svg");
-  animation: movewave 10s linear infinite;
+  animation: movesidewise 30s linear infinite;
 }
 
 .navbar-link {
@@ -56,16 +63,40 @@ body {
   align-items: center;
 }
 
-@keyframes movewave {
+.search-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 50vw;
+  border: 1px solid;
+  border-radius: 20px;
+  box-shadow: 5px 5px 1px 5px rgba(0, 0, 0, 0.384);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.blob-bg {
+  background-image: url("./SVGs/blob.svg");
+  position: center;
+  animation: move-blob 5s linear infinite;
+}
+
+// Animation css
+@keyframes move-blob {
   0% {
-    background-position-x: 0;
+    background-position: 10% 50%;
+    // transform: rotate(0deg);
   }
   100% {
-    background-position-x: -50vw;
+    background-position: 80% 50%;
+    // transform: rotate(360deg);
   }
 }
 
-@keyframes gradient {
+@keyframes movesidewise {
   0% {
     background-position: 0% 50%;
   }
