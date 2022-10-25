@@ -42,11 +42,12 @@ export default function Login() {
   return (
     <div className='formdiv mt-0'>
       <div className="form corner-bg" style={{ height: "50vh" }}>
-        <h3>Login</h3>
+        <h3 className="white">Login</h3>
         <TextField
           id="outlined-email"
           label="Email"
-          helperText="Type your email here"
+          sx={{ input: { color: "rgba(255, 255, 255, 0.402)" } }} helperText="
+          Type your email here"
           className="mb-3 w-50"
           value={auth_obj.email}
           onChange={handleChange('email')}
@@ -61,6 +62,7 @@ export default function Login() {
           className="mb-3 w-50"
           value={auth_obj.password}
           onChange={handleChange('password')}
+          sx={{ input: { color: "rgba(255, 255, 255, 0.402)" } }}
           type={auth_obj.showPassword ? "password" : "text"}
           InputProps={{
             endAdornment:
@@ -76,7 +78,7 @@ export default function Login() {
           }}
         />
         <p className="error">{auth_obj.passwordError}</p>
-        <div className='mt-2 mb-3'>
+        <div className='mt-2 mb-3 grey'>
           Don't have an account, <Link className="no-underline" to="/sign-up"> click here</Link>
         </div>
         <Button variant="contained" color="primary" onClick={handleFormSubmit}>

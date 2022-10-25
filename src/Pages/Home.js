@@ -17,15 +17,6 @@ export default function Home() {
     update_userName(e.target.value)
   }
 
-  const styles = theme => ({
-    multilineColor: {
-      color: 'red'
-    }
-  });
-
-  
-
-
   return (
     <>
       <Navbar />
@@ -38,12 +29,12 @@ export default function Home() {
                 <h3>Search the user id</h3>
                 <TextField
                   id="outlined-product-name"
-                  label="Product Name"
+                  label="Username"
                   helperText="Enter the user name"
                   className="mb-3 w-50"
                   value={userName}
                   onChange={handleOnChangeSearchField}
-                  sx={{ input: { color: 'white' } }}
+                  sx={{ input: { color: "rgba(255, 255, 255, 0.402)" } }}
                   color="secondary"
 
                 />

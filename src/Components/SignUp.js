@@ -49,9 +49,10 @@ export default function SigUp() {
 	return (
 		<div className='formdiv'>
 			<div className="form corner-bg" style={{ height: "65vh" }}>
-				<h3>Sign up</h3>
+				<h3 className="white">Sign up</h3>
 				<TextField
 					id="outlined-name"
+					sx={{ input: { color: "rgba(255, 255, 255, 0.402)" } }}
 					label="Name"
 					helperText="Type your name here"
 					className="mb-3 w-50"
@@ -61,6 +62,7 @@ export default function SigUp() {
 				/>
 				<TextField
 					id="outlined-email"
+					sx={{ input: { color: "rgba(255, 255, 255, 0.402)" } }}
 					label="Email"
 					helperText="Type your email here"
 					className="mb-3 w-50"
@@ -71,6 +73,7 @@ export default function SigUp() {
 				<p className="error">{auth_obj.emailError}</p>
 				<TextField
 					id="outlined-password"
+					sx={{ input: { color: "rgba(255, 255, 255, 0.402)" } }}
 					label="Password"
 					helperText="Type your password here"
 					className="mb-3 w-50"
@@ -91,7 +94,7 @@ export default function SigUp() {
 					}}
 				/>
 				<p className="error">{auth_obj.passwordError}</p>
-				<div className='mt-2 mb-3'>
+				<div className='mt-2 mb-3 grey'>
 					Already have an account, <Link className="no-underline" to="/"> click here</Link>
 				</div>
 
