@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Loader from '../Components/Loader';
 
 export default function Home() {
-  const [productName, update_productName] = useState('');
+  const [userName, update_userName] = useState('');
   const [submitClicked, update_submitClicked] = useState(false);
 
   const handleSearchButton = () => {
@@ -14,13 +14,18 @@ export default function Home() {
   }
 
   const handleOnChangeSearchField = (e) => {
-    update_productName(e.target.value)
+    update_userName(e.target.value)
   }
+
   const styles = theme => ({
     multilineColor: {
       color: 'red'
     }
   });
+
+  
+
+
   return (
     <>
       <Navbar />
@@ -36,14 +41,14 @@ export default function Home() {
                   label="Product Name"
                   helperText="Enter the user name"
                   className="mb-3 w-50"
-                  value={productName}
+                  value={userName}
                   onChange={handleOnChangeSearchField}
                   sx={{ input: { color: 'white' } }}
                   color="secondary"
 
                 />
-                <Button variant="contained" color="primary" onClick={handleSearchButton} disabled={productName === ""}>
-                  <Link to="/analysis" style={{ textDecoration: "None", color: "white" }} state={{ productName: productName }}>
+                <Button variant="contained" color="primary" onClick={handleSearchButton} disabled={userName === ""}>
+                  <Link to="/analysis" style={{ textDecoration: "None", color: "white" }} state={{ userName: userName }}>
                     Search
                   </Link>
                 </Button>
