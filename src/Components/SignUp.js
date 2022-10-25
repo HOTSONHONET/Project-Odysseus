@@ -7,41 +7,44 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Button, OutlinedInput } from '@mui/material';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import DangerousIcon from '@mui/icons-material/Dangerous';
-import { Link } from 'react-router-dom';
+import { Link, NavigationType, useNavigate } from 'react-router-dom';
+import FireBaseAuth from '../Utils/Auth/FireBaseAuth';
+import auth from '../Utils/Auth/fire';
 
 
 export default function SigUp() {
-	const [values, update_values] = useState({
+	const [auth_obj, update_auth_obj] = useState({
 		name: '',
 		email: '',
 		password: '',
-		organization: '',
+		emailError: '',
+		passwordError: '',
 		showPassword: false
 	})
 
+	// Helper function to handle props change
 	const handleChange = (prop) => (event) => {
-		update_values({
-			...values,
-			[prop]: event.target.value
+		update_auth_obj({
+			...auth_obj,
+			[prop]: event.target.value,
+			emailError: '',
+			passwordError: '',
 		})
 
-		console.log(values)
 	}
 
 	const handleClickShowPassword = () => {
-		update_values({
-			...values,
-			showPassword: !values.showPassword
+		update_auth_obj({
+			...auth_obj,
+			showPassword: !auth_obj.showPassword
 		})
 	}
 
-	const handleMouseDownPassword = (event) => {
-		event.preventDefault();
-	};
-
+	const navigate = useNavigate();
 	const handleFormSubmit = () => {
-
+		FireBaseAuth.register(auth_obj, update_auth_obj, navigate);
 	}
+
 
 	return (
 		<div className='formdiv'>
@@ -52,7 +55,7 @@ export default function SigUp() {
 					label="Name"
 					helperText="Type your name here"
 					className="mb-3 w-50"
-					value={values.name}
+					value={auth_obj.name}
 					onChange={handleChange('name')}
 
 				/>
@@ -61,47 +64,39 @@ export default function SigUp() {
 					label="Email"
 					helperText="Type your email here"
 					className="mb-3 w-50"
-					value={values.email}
+					value={auth_obj.email}
 					onChange={handleChange('email')}
 
 				/>
-				<TextField
-					id="outlined-email"
-					label="Email"
-					helperText="Type your email here"
-					className="mb-3 w-50"
-					value={values.email}
-					onChange={handleChange('email')}
-
-				/>
+				<p className="error">{auth_obj.emailError}</p>
 				<TextField
 					id="outlined-password"
 					label="Password"
 					helperText="Type your password here"
 					className="mb-3 w-50"
-					value={values.password}
+					value={auth_obj.password}
 					onChange={handleChange('password')}
-					type={values.showPassword ? "password" : "text"}
+					type={auth_obj.showPassword ? "password" : "text"}
 					InputProps={{
 						endAdornment:
 							<InputAdornment position="end">
 								<IconButton
 									aria-label="toggle password visibility"
 									onClick={handleClickShowPassword}
-									onMouseDown={handleMouseDownPassword}
 									edge="end"
 								>
-									{values.showPassword ? <VisibilityOff /> : <Visibility />}
+									{auth_obj.showPassword ? <Visibility /> : <VisibilityOff />}
 								</IconButton>
 							</InputAdornment>
 					}}
 				/>
+				<p className="error">{auth_obj.passwordError}</p>
 				<div className='mt-2 mb-3'>
-					Already have an account, <Link className="no-underline" to="/login"> click here</Link>
+					Already have an account, <Link className="no-underline" to="/"> click here</Link>
 				</div>
 
 				<Button variant="contained" color="primary" onClick={handleFormSubmit}>
-					Submit
+					Sign Up
 				</Button>
 			</div>
 		</div>

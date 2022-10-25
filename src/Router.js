@@ -9,12 +9,21 @@ const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/login" element={<AuthPage />} />
+        <Route exact path="/" element={<AuthPage />} />
         <Route exact path="/sign-up" element={<AuthPage />} />
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/community" element={<Community />} />
-        <Route exact path="/profile" element={<Profile />} />
-        <Route exact path="/analysis" element={<Analysis />} />
+        {
+          sessionStorage.getItem("loggedIn") ?
+            <>
+              <Route exact path="/home" element={<Home />} />
+              <Route exact path="/profile" element={<Profile />} />
+              <Route exact path="/analysis" element={<Analysis />} />
+            </>
+            : <>
+              {/* <Route exact path="/home" element={<Home />} />
+              <Route exact path="/profile" element={<Profile />} />
+              <Route exact path="/analysis" element={<Analysis />} /> */}
+            </>
+        }
       </Routes>
     </BrowserRouter>
   );

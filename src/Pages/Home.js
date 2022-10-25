@@ -30,11 +30,11 @@ export default function Home() {
             submitClicked ?
               <Loader /> :
               <>
-                <h3>Search Your Product</h3>
+                <h3>Search the user id</h3>
                 <TextField
                   id="outlined-product-name"
                   label="Product Name"
-                  helperText="Enter your product name"
+                  helperText="Enter the user name"
                   className="mb-3 w-50"
                   value={productName}
                   onChange={handleOnChangeSearchField}
