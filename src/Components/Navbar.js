@@ -5,7 +5,7 @@ import FireBaseAuth from '../Utils/Auth/FireBaseAuth';
 export default function Navbar() {
   const navigate = useNavigate();
   const handleLogOut = () => {
-    FireBaseAuth.handleLogout();
+    FireBaseAuth.handleLogout(navigate);
     navigate("/");
   }
 
