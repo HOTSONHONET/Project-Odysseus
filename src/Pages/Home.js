@@ -4,6 +4,8 @@ import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import Loader from '../Components/Loader';
+import getUserTweets from '../Utils/TwitterAPI/getUserTweets';
+import getUserId from '../Utils/TwitterAPI/getUserId';
 
 export default function Home() {
   const [username, update_username] = useState('');
@@ -43,8 +45,7 @@ export default function Home() {
                 />
                 <Button className="white" variant="contained" color="primary" onClick={handleSearchButton} disabled={username === ""}>
                   Search
-                </Button>
-              </>
+                </Button>              </>
           }
         </div>
       </div>

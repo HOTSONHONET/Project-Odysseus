@@ -6,42 +6,32 @@ const endpointURL = "https://api.twitter.com/2/users/by?usernames="
 
 const bearerToken = process.env.BEARER_TOKEN;
 
-async function getRequest() {
+const getRequest = async (userName) => {
 
-    // These are the parameters for the API request
-    // specify User names to fetch, and any additional fields that are required
-    // by default, only the User ID, name and user name are returned
     const params = {
-        usernames: "elonmusk", // Edit usernames to look up
+        usernames: userName, 
     }
-
-    // this is the HTTP header that adds bearer token authentication
-    const res = await needle('get', endpointURL, params, {
-        headers: {
-            "User-Agent": "v2UserLookupJS",
-            "authorization": `Bearer ${bearerToken}`
-        }
-    })
-
-    if (res.body) {
-        return res.body;
-    } else {
-        throw new Error('Unsuccessful request')
-    }
-}
-
-(async () => {
 
     try {
-        // Make request
-        const response = await getRequest();
-        console.dir(response, {
-            depth: null
-        });
+        const resp = await needle('get', endpointURL, params, {
+            headers: {
+                "User-Agent": "v2UserLookupJS",
+                "authorization": `Bearer ${bearerToken}`
+            }
+        })
 
-    } catch (e) {
-        console.log(e);
-        process.exit(-1);
+        if (resp.statusCode != 200) {
+            console.log(`${resp.statusCode}`);
+        }
+        console.log(resp.body.data)
+        // console.dir(resp.data, {
+        //     depth: null
+        // });
+    
+    } catch (err) {
+        throw new Error(`Request failed: ${err}`);
     }
-    process.exit();
-})();
+}
+    
+
+getRequest('elonmusk')
