@@ -2,19 +2,22 @@ import React, { useState } from 'react';
 import Navbar from '../Components/Navbar'
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Loader from '../Components/Loader';
 
 export default function Home() {
-  const [productName, update_productName] = useState('');
+  const [username, update_username] = useState('');
   const [submitClicked, update_submitClicked] = useState(false);
 
   const handleSearchButton = () => {
     update_submitClicked(true);
+    localStorage.setItem("username", username);
+    navigate("/analysis");
   }
 
+  const navigate = useNavigate()
   const handleOnChangeSearchField = (e) => {
-    update_productName(e.target.value)
+    update_username(e.target.value)
   }
 
   return (
@@ -32,16 +35,14 @@ export default function Home() {
                   label="Username"
                   helperText="Enter the user name"
                   className="mb-3 w-50"
-                  value={productName}
+                  value={username}
                   onChange={handleOnChangeSearchField}
                   sx={{ input: { color: "rgba(255, 255, 255, 0.402)" } }}
                   color="secondary"
 
                 />
-                <Button variant="contained" color="primary" onClick={handleSearchButton} disabled={productName === ""}>
-                  <Link to="/analysis" style={{ textDecoration: "None", color: "white" }} state={{ productName: productName }}>
-                    Search
-                  </Link>
+                <Button className="white" variant="contained" color="primary" onClick={handleSearchButton} disabled={username === ""}>
+                  Search
                 </Button>
               </>
           }

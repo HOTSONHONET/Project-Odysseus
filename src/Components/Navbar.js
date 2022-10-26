@@ -17,7 +17,7 @@ export default function Navbar() {
       <div className="collapse navbar-collapse nav-items" id="navbarSupportedContent">
         <ul className="navbar-nav mb-2 mb-lg-0" >
           <li>
-            <Link className="nav-link item-link" to="/">
+            <Link className="nav-link item-link" to="/home">
               <h3>Home</h3>
             </Link>
           </li>

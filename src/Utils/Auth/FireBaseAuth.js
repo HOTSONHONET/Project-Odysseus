@@ -12,8 +12,8 @@ class FireBaseAuth {
 		await signInWithEmailAndPassword(auth, auth_obj.email, auth_obj.password)
 			.then(response => {
 				sessionStorage.setItem("loggedIn", true);
-				navigate("/home");
 			})
+			.then(navigate("/home"))
 			.catch(err => {
 				console.log('Login Error: ', err)
 				switch (err.code) {
@@ -50,14 +50,16 @@ class FireBaseAuth {
 		Method to create account
 		
 		*/
-		await createUserWithEmailAndPassword(auth, auth_obj.email,
-			auth_obj.password).then(response => {
+		await createUserWithEmailAndPassword(auth, auth_obj.email, auth_obj.password)
+			.then(response => {
 				updateProfile(auth.currentUser, {
 					displayName: auth_obj.name
 				})
 				sessionStorage.setItem("loggedIn", true);
-				navigate("/");
-			}).catch(err => {
+
+			})
+			.then(navigate("/"))
+			.catch(err => {
 				console.log('Register Error: ', err.message)
 				switch (err.code) {
 					case "auth/email-already-in-use":
@@ -89,9 +91,10 @@ class FireBaseAuth {
 		Method to handle logout
 		
 		*/
-		await auth.signOut();
-		sessionStorage.removeItem("loggedIn");
-		navigate("/");
+		await auth.signOut()
+		sessionStorage.removeItem("loggedIn")
+			.then(navigate("/"))
+
 	}
 
 }
