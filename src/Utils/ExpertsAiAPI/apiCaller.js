@@ -25,7 +25,10 @@ class ExpertsAiAPICaller {
 
   // Sentiment analysis
   static async getSentimentAnalysisOfAllTexts(texts, update_data) {
-    let data = []
+    let data = {
+      negative: [],
+      positive: [],
+    }
     for (let text of texts) {
       let options = {
         method: 'POST',
@@ -43,7 +46,17 @@ class ExpertsAiAPICaller {
       };
 
       await axios.request(options).then(function (response) {
-        data.push(response.data);
+        if (response.data.data.sentiment.overall < 0) {
+          data.negative.push({
+            text: text,
+            sentiment: response.data.data.sentiment
+          })
+        } else {
+          data.positive.push({
+            text: text,
+            sentiment: response.data.data.sentiment
+          })
+        }
       }).catch(function (error) {
         console.error(error);
       });

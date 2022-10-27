@@ -12,35 +12,34 @@ export default function Home() {
   const [submitClicked, update_submitClicked] = useState(false);
   const token = "AAAAAAAAAAAAAAAAAAAAAATViQEAAAAAAa7pcajwx0xx5JZxeMMjV1UgryI%3Dd5L5P8fdKEpDz1XSxIhqgrqcgx10AVfyoLkpzSFWwrvPAtz4Bb"
   const [tweets, update_tweets] = useState([]);
-  useEffect(() => {
-    axios
-      .get(
-        `http://localhost:4000/get/user/${username}`
-      )
-      .then((res) => {
-        update_userId(res.data.id);
-        console.log(res.data.id)
-      })
-      .catch((error) => console.error(error))
-
-  }, [submitClicked]);
-
-  useEffect(() => {
-    axios
-      .get(
-        `http://localhost:4000/get/tweets/${userId}`
-      )
-      .then((res) => {
-        update_tweets(res.data.tweets);
-        console.log(res.data.tweets)
-      })
-      .catch((error) => console.error(error))
-
-  }, [userId]);
 
   const handleSearchButton = () => {
     update_submitClicked(true);
     localStorage.setItem("username", username);
+
+    const getTweets = async () => {
+      await axios.get(
+        `http://localhost:4000/get/user/${username}`
+      )
+        .then((res) => {
+          update_userId(res.data.id);
+          console.log(res.data.id)
+        })
+        .catch((error) => console.error(error))
+
+      await axios.get(
+        `http://localhost:4000/get/tweets/${userId}`
+      )
+        .then((res) => {
+          update_tweets(res.data.tweets);
+          console.log(res.data.tweets)
+        })
+        .catch((error) => console.error(error))
+    }
+
+    getTweets()
+
+    navigate("/analysis", { state: tweets })
   }
 
   const navigate = useNavigate()
@@ -71,7 +70,8 @@ export default function Home() {
                 />
                 <Button className="white" variant="contained" color="primary" onClick={handleSearchButton} disabled={username === ""}>
                   Search
-                </Button>              </>
+                </Button>
+              </>
           }
         </div>
       </div>

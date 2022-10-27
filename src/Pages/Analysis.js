@@ -5,22 +5,23 @@ import ProfileSection from "../Components/ProfileSection";
 import RandomTweetSection from "../Components/RandomTweetSection";
 import SentimentAnalysisSection from "../Components/SentimentAnalysisSection";
 import ExpertsAiAPICaller from '../Utils/ExpertsAiAPI/apiCaller';
+import Tweets from "../musk.json";
 
 export default function Analysis() {
   const username = localStorage.getItem('username');
-  const [token, update_token] = useState('');
+  const [data, update_data] = useState(null);
   console.log(username)
 
   useEffect(() => {
-    ExpertsAiAPICaller.generateBearerToken(update_token);
+    ExpertsAiAPICaller.getSentimentAnalysisOfAllTexts(Tweets.tweets, update_data);
   }, [])
 
   return (
     <>
       <Navbar />
       <ProfileSection />
-      <SentimentAnalysisSection token={token} />
-      <RandomTweetSection token={token} />
+      <SentimentAnalysisSection data={data} />
+      <RandomTweetSection data={data} />
     </>
   )
 }
