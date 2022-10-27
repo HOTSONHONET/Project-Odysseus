@@ -14,7 +14,7 @@ export default function Home() {
     localStorage.setItem("username", username);
     console.log(username);
     axios.get(
-      `http://localhost:4000/get/user/${username}`
+      `https://whale-app-vcjri.ondigitalocean.app/get/user/${username}`
     )
       .then((res) => {
         localStorage.setItem("userId", res.data.id);

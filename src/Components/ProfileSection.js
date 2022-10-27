@@ -8,7 +8,7 @@ export default function ProfileSection(props) {
 	const [image_url, update_image_url] = useState(null)
 	useEffect(() => {
 		setTimeout(function () {
-			axios.get(`http://localhost:4000/get/userimage/${userName}`, {
+			axios.get(`https://whale-app-vcjri.ondigitalocean.app/get/userimage/${userName}`, {
 				headers: {
 					'Accept-Control-Allow-Origin': '*'
 				}
