@@ -20,7 +20,7 @@ export default function RandomTweetSection(props) {
             {tweets[idx]}
          </div>
          <button className="mt-2 btn btn-primary" onClick={handleRandomize}>Randomize</button>
-         <div className="d-flex flex-row justify-content-center align-items-center">
+         <div className="d-flex flex-column justify-content-center align-items-center">
             <Ner text={tweets[idx]} />
             <MainEmotions text={tweets[idx]} />
             <HateSpeech text={tweets[idx]} />

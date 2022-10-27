@@ -12,16 +12,15 @@ export default function Home() {
   const navigate = useNavigate()
   const handleSearchButton = () => {
     localStorage.setItem("username", username);
-    console.log(username);
+    console.log("username:", username);
     axios.get(
       `http://localhost:4000/get/user/${username}`
-    )
-      .then((res) => {
-        localStorage.setItem("userId", res.data.id);
-        console.log("UseId: ", res.data.id)
-        navigate("/analysis")
-      })
-      .catch((error) => console.error(error))
+    ).then((res) => {
+      console.log(res);
+      localStorage.setItem("userId", res.data.id);
+      console.log("UseId: ", res.data.id)
+      navigate("/analysis")
+    }).catch((error) => console.error(error))
 
   }
 

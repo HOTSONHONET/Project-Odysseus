@@ -83,13 +83,12 @@ class ExpertsAiAPICaller {
 
   }
   // NER
-  static async performNER(text) {
-    var options = {
+  static async performNER(text, update_data) {
+    let options = {
       method: 'POST',
       url: 'https://nlapi.expert.ai/v2/analyze/standard/en/entities',
       headers: {
         Accept: '*/*',
-        'User-Agent': 'Thunder Client (https://www.thunderclient.com)',
         Authorization: `Bearer ${localStorage.getItem("token")}`,
         'Content-Type': 'application/json'
       },
@@ -101,14 +100,50 @@ class ExpertsAiAPICaller {
     };
 
     axios.request(options).then(function (response) {
-      console.log(response.data);
+
+      const entities = response.data.data.entities;
+      let finder = {};
+      for (let ele of entities) {
+        if (finder.hasOwnProperty(ele.type)) {
+          finder[ele.type].push(ele.lemma);
+        } else {
+          finder[ele.type] = [ele.lemma];
+        }
+      }
+
+      update_data(finder);
     }).catch(function (error) {
       console.error(error);
     });
   }
 
   // Behavorial group
-  static async getBehavourialTraits(text) {
+  static async getBehavourialTraits(text, update_groups) {
+    let options = {
+      method: 'POST',
+      url: 'https://nlapi.expert.ai/v2/categorize/emotional-traits/en',
+      headers: {
+        Accept: '*/*',
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        'Content-Type': 'application/json'
+      },
+      data: {
+        document: {
+          text: text
+        }
+      }
+    };
+
+    axios.request(options).then(function (response) {
+      console.log("Behavourial_data:", response.data.data.categories);
+      update_groups(response.data.data.categories)
+    }).catch(function (error) {
+      console.error(error);
+    });
+  }
+
+  // Hate Speech
+  static async getHateSpeechData(text, update_data) {
 
   }
 
