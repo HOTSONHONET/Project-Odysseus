@@ -21,11 +21,6 @@ export default function Navbar() {
               <h3>Home</h3>
             </Link>
           </li>
-          <li>
-            <Link className="nav-link item-link" to="/profile">
-              <h3>Profile</h3>
-            </Link>
-          </li>
           <li onClick={handleLogOut}>
             <Link className="nav-link item-link">
               <h3>LogOut</h3>

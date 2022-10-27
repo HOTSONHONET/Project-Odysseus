@@ -8,41 +8,24 @@ import axios from 'axios';
 
 export default function Home() {
   const [username, update_username] = useState('');
-  const [userId, update_userId] = useState('')
-  const [submitClicked, update_submitClicked] = useState(false);
-  const token = "AAAAAAAAAAAAAAAAAAAAAATViQEAAAAAAa7pcajwx0xx5JZxeMMjV1UgryI%3Dd5L5P8fdKEpDz1XSxIhqgrqcgx10AVfyoLkpzSFWwrvPAtz4Bb"
-  const [tweets, update_tweets] = useState([]);
-
-  const handleSearchButton = () => {
-    update_submitClicked(true);
-    localStorage.setItem("username", username);
-
-    const getTweets = async () => {
-      await axios.get(
-        `http://localhost:4000/get/user/${username}`
-      )
-        .then((res) => {
-          update_userId(res.data.id);
-          console.log(res.data.id)
-        })
-        .catch((error) => console.error(error))
-
-      await axios.get(
-        `http://localhost:4000/get/tweets/${userId}`
-      )
-        .then((res) => {
-          update_tweets(res.data.tweets);
-          console.log(res.data.tweets)
-        })
-        .catch((error) => console.error(error))
-    }
-
-    getTweets()
-
-    navigate("/analysis", { state: tweets })
-  }
 
   const navigate = useNavigate()
+  const handleSearchButton = () => {
+    localStorage.setItem("username", username);
+    console.log(username);
+    axios.get(
+      `http://localhost:4000/get/user/${username}`
+    )
+      .then((res) => {
+        localStorage.setItem("userId", res.data.id);
+        console.log("UseId: ", res.data.id)
+        navigate("/analysis")
+      })
+      .catch((error) => console.error(error))
+
+  }
+
+
   const handleOnChangeSearchField = (e) => {
     update_username(e.target.value)
   }
@@ -52,27 +35,21 @@ export default function Home() {
       <Navbar />
       <div className="d-flex justify-content-center">
         <div className="search-box blob-bg">
-          {
-            submitClicked ?
-              <Loader /> :
-              <>
-                <h3>Search the user id</h3>
-                <TextField
-                  id="outlined-product-name"
-                  label="Username"
-                  helperText="Enter the user name"
-                  className="mb-3 w-50"
-                  value={username}
-                  onChange={handleOnChangeSearchField}
-                  sx={{ input: { color: "rgba(255, 255, 255, 0.402)" } }}
-                  color="secondary"
+          <h3>Search the user id</h3>
+          <TextField
+            id="outlined-product-name"
+            label="Username"
+            helperText="Enter the user name"
+            className="mb-3 w-50"
+            value={username}
+            onChange={handleOnChangeSearchField}
+            sx={{ input: { color: "rgba(255, 255, 255, 0.402)" } }}
+            color="secondary"
 
-                />
-                <Button className="white" variant="contained" color="primary" onClick={handleSearchButton} disabled={username === ""}>
-                  Search
-                </Button>
-              </>
-          }
+          />
+          <Button className="white" variant="contained" color="primary" onClick={handleSearchButton} disabled={username === ""}>
+            Search
+          </Button>
         </div>
       </div>
     </>
