@@ -143,8 +143,41 @@ class ExpertsAiAPICaller {
   }
 
   // Hate Speech
-  static async getHateSpeechData(text, update_data) {
+  static async getHateSpeechData(text, update_categories, update_extractions) {
 
+    let options = {
+      method: 'POST',
+      url: 'https://nlapi.expert.ai/v2/detect/hate-speech/en',
+      headers: {
+        Accept: '*/*',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      },
+      data: {
+        document: { text: text }
+      }
+    };
+
+    axios.request(options).then(function (response) {
+      console.log("HateSpeech: ", response.data);
+      let categories_finder = {};
+      let extraction_finder = {};
+      for (let res of response.data.data.categories) {
+        categories_finder[res.label] = res.score;
+      }
+
+      for (let res of response.data.data.extractions) {
+        for (let field of res.fields) {
+          extraction_finder[field.name] = field.value;
+        }
+      }
+
+      update_categories(categories_finder);
+      update_extractions(extraction_finder);
+
+    }).catch(function (error) {
+      console.error(error);
+    });
   }
 
 }

@@ -50,6 +50,20 @@ body {
   margin-bottom: 10px;
 }
 
+.entity-type {
+  background-color: #b01983;
+  color: white;
+  margin: 4px;
+  border-radius: 3px;
+}
+
+.entities {
+  background-color: #202561;
+  color: white;
+  margin: 4px;
+  border-radius: 3px;
+}
+
 .emotion-groups {
   background-color: #d55b23;
   color: white;
@@ -72,6 +86,10 @@ body {
   border-style: double;
   border-radius: 10px;
   height: 50%;
+}
+
+.tweet {
+  font-size: 1rem;
 }
 
 .randomTweetSection {

@@ -21,7 +21,7 @@ export default function Analysis() {
     // ExpertsAiAPICaller.getSentimentAnalysisOfAllTexts(Tweets.tweets, update_data);const getTweets = async () => {
     async function getTweets() {
       axios.get(
-        `https://whale-app-vcjri.ondigitalocean.app/${userId}`
+        `http://localhost:4000/get/tweets/${userId}`
       )
         .then((res) => {
           update_tweets(res.data.tweets);

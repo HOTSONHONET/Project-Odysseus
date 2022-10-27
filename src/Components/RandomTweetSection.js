@@ -15,12 +15,12 @@ export default function RandomTweetSection(props) {
    }
 
    return (
-      <div className="container mt-3 randomTweetSection d-flex flex-column justify-content-start">
+      <div className="container mt-3 mb-5 randomTweetSection d-flex flex-column justify-content-start">
          <div className="doubleBorder mt-3 p-5 white d-flex flex-row justify-content-center align-items-center">
-            {tweets[idx]}
+            <em className="tweet">{tweets[idx]}</em>
          </div>
          <button className="mt-2 btn btn-primary" onClick={handleRandomize}>Randomize</button>
-         <div className="d-flex flex-column justify-content-center align-items-center">
+         <div className="d-flex flex-column justify-content-start align-items-start">
             <Ner text={tweets[idx]} />
             <MainEmotions text={tweets[idx]} />
             <HateSpeech text={tweets[idx]} />

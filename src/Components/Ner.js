@@ -10,18 +10,17 @@ export default function Ner(props) {
 
 
    return (
-      <div className="mt-3 d-flex flex-column justify-content-center align-items-center">
+      <div className="mt-3 ">
          <div className="white">
             <h3>NER Analysis</h3>
          </div>
          {data && <div className="d-flex flex-column">
             {Object.keys(data).map((ele, idx) => {
                return <div key={idx} className="d-flex flex-row">
-                  <h5 className="white">{ele}</h5>
-                  {console.log(data)}
-                  {/* {data.ele.map((item) => {
-                     return <span className="entities">{item}</span>
-                  })} */}
+                  <h5 className="white entity-type">{ele}</h5>
+                  {data[ele].map((item, idx) => {
+                     return <span key={idx} className="entities">{item}</span>
+                  })}
                </div>
             })}
          </div>

@@ -8,7 +8,7 @@ export default function ProfileSection(props) {
 	const [image_url, update_image_url] = useState(null)
 	useEffect(() => {
 		setTimeout(function () {
-			axios.get(`https://whale-app-vcjri.ondigitalocean.app/get/userimage/${userName}`, {
+			axios.get(`http://localhost:4000/get/userimage/${userName}`, {
 				headers: {
 					'Accept-Control-Allow-Origin': '*'
 				}
@@ -22,8 +22,8 @@ export default function ProfileSection(props) {
 		<div className="container profile d-flex flex-row justify-content-center align-items-center">
 			<div className="row">
 				<div className="col white d-flex flex-column justify-content-center align-items-start">
-					<h3>{`Name: ${userName}`}</h3>
-					<p>{`Tweeter Id: @${userId}`}</p>
+					<h3>{`Username: ${userName}`}</h3>
+					<p>{`Twitter Id: @${userId}`}</p>
 				</div>
 				<div className="col profilePicture d-flex flex-column justify-content-center align-items-center">
 					<img src={image_url ? image_url : "../assets/blankProfile.jpg"} alt="" />

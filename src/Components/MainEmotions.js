@@ -8,7 +8,7 @@ export default function MainEmotions(props) {
       ExpertsAiAPICaller.getBehavourialTraits(text, update_groups);
    }, [text])
    return (
-      <div className="mt-3 d-flex flex-column justify-content-center align-items-center">
+      <div className="mt-3 ">
          <div className="white">
             <h3>Emotion Groups</h3>
          </div>
