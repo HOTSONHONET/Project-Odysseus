@@ -1,9 +1,6 @@
-  [![Contributors][contributors-shield]][contributors-url]
   [![Forks][forks-shield]][forks-url]
   [![Stargazers][stars-shield]][stars-url]
   [![Issues][issues-shield]][issues-url]
-  [![MIT License][license-shield]][license-url]
-  [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
@@ -49,7 +46,6 @@
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
@@ -60,14 +56,17 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://cryptotrack-sm.netlify.app/)
+![Product Name Screen Shot][product-screenshot]  
 
-This project is a cryptocurrency price tracker built using React.js that displays the top 200 cryptocurrencies according to their market cap fetched from CoinGecko API. 
+The backend can be accessed here: [Project Odysseus Backend](https://github.com/SaswatM-62/Project-Odysseus-Backend)
+
+Twitter is a popular social media platform. A downside is it can contain a lot of hate, misinformation and negativity and a new uninformed user can easily go down that rabbit hole. Project Odysseus takes username from user and fetches 100 recent tweets from their timeline. The tweets are then analyzed for sentiment analysis, emotion recognition, hate speech and named entity recognition to find if a profile is in general positive or negative in nature and if they spread hate and misinformation of the platform.  
 
 The application includes the following features:
-* View the price, the market cap, the volume in the last 24 hours and the percentage change in the last 24 hours of the cryptocurrencies.
-* Search for specific cryptocurrencies.
-* Supports 47 different currency markets in terms of which the cryptocurrencies can be viewed.
+* User authentication
+* Take Twitter username from application user and fetch 100 recent tweets
+* Analysis of tweets using Expert.ai's NLP API
+* Provide the analysis data on hate speech, emotion recognition, sentiment analysis and NER to the user.
 
 The project is bootstrapped using create-react-app.  
   
@@ -75,9 +74,11 @@ The project is bootstrapped using create-react-app.
 ### Built With
 
 The project is built with
-* [CoinGecko API](https://www.coingecko.com/en/api)
+* [Express](https://expressjs.com/)
 * [React](https://reactjs.org/)
-
+* [Twitter API V2](https://developer.twitter.com/en)
+* [Expert.ai NLP API](https://www.expert.ai/products/natural-language-text-analytics/)
+* [Firebase](https://firebase.google.com/)
   
 
 <!-- GETTING STARTED -->
@@ -99,17 +100,20 @@ You need to have Node.js installed to run this application
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/SaswatM-62/CryptoTrack.git
+   git clone https://github.com/HOTSONHONET/Project-Odysseus.git
    ```
 2. Open the project folder in the terminal
    ```sh
-   cd CryptoTrack
+   cd Project-Odysseus
    ```
 3. Install NPM packages
    ```sh
    npm install
    ```
-  
+4. Install react-scripts
+   ```sh
+   npm install --save react-scripts
+   ```
   
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -123,7 +127,7 @@ This will start a development server on port 3000.
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/SaswatM-62/CryptoTrack/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/HOTSONHONET/Project-Odysseus/issues) for a list of proposed features (and known issues).
 
 
 
@@ -138,45 +142,29 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.md` for more information.
-
-
-
 <!-- CONTACT -->
 ## Contact
 
-Saswat Mishra - [@TheSaswat](https://twitter.com/TheSaswat) - [LinkedIn][linkedin-url] - saswat.mish62@gmail.com
-
-Project Link: [https://github.com/SaswatM-62/CryptoTrack](https://github.com/SaswatM-62/CryptoTrack)
+Saswat Mishra - [@TheSaswat](https://twitter.com/TheSaswat) - [LinkedIn][linkedin-url] - saswat.mish62@gmail.com  
+Rudra Prasad Dash - [HOTSONHONET](https://github.com/HOTSONHONET/) -[LinkedIn](https://www.linkedin.com/in/hotsonhonet/) - hotsonhonet@gmail.com  
+Project Link: [https://github.com/HOTSONHONET/Project-Odysseus](https://github.com/HOTSONHONET/Project-Odysseus)
 
 
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 * [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
 * [Font Awesome](https://fontawesome.com)
 * [Flat Icons](https://flat-icons.com/)
 * [Axios](https://www.npmjs.com/package/axios)
-
+* [Expert.ai](https://www.expert.ai/products/natural-language-text-analytics/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/SaswatM-62/CryptoTrack?color=Green&style=for-the-badge
-[contributors-url]: https://github.com/SaswatM-62/CryptoTrack/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/SaswatM-62/CryptoTrack?style=for-the-badge
-[forks-url]: https://github.com/SaswatM-62/CryptoTrack/network/members
-[stars-shield]: https://img.shields.io/github/stars/SaswatM-62/CryptoTrack?style=for-the-badge
-[stars-url]: https://github.com/SaswatM-62/CryptoTrack/stargazers
-[issues-shield]: https://img.shields.io/github/issues/SaswatM-62/CryptoTrack?style=for-the-badge
-[issues-url]: https://github.com/SaswatM-62/CryptoTrack/issues
-[license-shield]: https://img.shields.io/github/license/SaswatM-62/CryptoTrack?style=for-the-badge
-[license-url]: https://github.com/SaswatM-62/CryptoTrack/blob/main/LICENSE.md
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/saswatmishra71
-[product-screenshot]: images/screenshot.png
+[forks-shield]: https://img.shields.io/github/forks/HOTSONHONET/Project-Odysseus
+[forks-url]: https://github.com/HOTSONHONET/Project-Odysseus/network/members
+[stars-shield]: GitHub stars badge	https://img.shields.io/github/stars/HOTSONHONET/Project-Odysseus
+[stars-url]: https://github.com/HOTSONHONET/Project-Odysseus/stargazers
+[issues-shield]: GitHub issues badge	https://img.shields.io/github/issues/HOTSONHONET/Project-Odysseus
+[issues-url]: https://github.com/HOTSONHONET/Project-Odysseus/issues
+[product-screenshot]: https://i.imgur.com/rf7b7dC.jpg
