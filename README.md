@@ -50,10 +50,35 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Product Name Screen Shot][product-screenshot] 
-![Product Name Screen Shot][product-screenshot2]
-![Product Name Screen Shot][product-screenshot3] 
-![Product Name Screen Shot][product-screenshot4] 
+
+<table>
+  <tr>
+    <th>Login</th>
+    <th>Sign Up</th>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/56304060/198504274-6979cbb3-f4c5-417d-8f52-a6867e7206c0.jpeg" alt="..." /></td>
+    <td><img src="https://user-images.githubusercontent.com/56304060/198504289-08bf5fcb-735f-49f9-ab74-c6735c70da7b.jpeg" alt="..." /></td>
+  </tr>
+  <tr>
+    <th>Home Page</th>
+    <th>Analysis Page</th>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/56304060/198504326-80e8e8c8-c485-4bf3-acd0-4ce296814bb1.jpeg" alt="..." /></td>
+    <td><img src="https://user-images.githubusercontent.com/56304060/198504404-00688e7d-1f8d-4b6d-9ead-098e708169c0.jpeg" alt="..." /></td>
+  </tr>
+  <tr>
+    <th>Distribution of tweets sentiment</th>
+    <th>Deep analysis of individual tweets</th>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/56304060/198504617-03669815-bcda-4af4-8684-d905a1bdd109.jpeg" alt="..." /></td>
+    <td><img src="https://user-images.githubusercontent.com/56304060/198504696-541633de-858c-464d-a5a9-1bd7ca70dac8.jpeg" alt="..." /></td>
+  </tr>
+</table>
+
+
 
 The backend can be accessed here: [Project Odysseus Backend](https://github.com/SaswatM-62/Project-Odysseus-Backend)
 
@@ -142,9 +167,22 @@ Contributions are what make the open source community such an amazing place to b
 <!-- CONTACT -->
 ## Contact
 
-Saswat Mishra - [@TheSaswat](https://twitter.com/TheSaswat) - [LinkedIn][linkedin-url] - saswat.mish62@gmail.com  
-Rudra Prasad Dash - [HOTSONHONET](https://github.com/HOTSONHONET/) -[LinkedIn](https://www.linkedin.com/in/hotsonhonet/) - hotsonhonet@gmail.com  
-Project Link: [https://github.com/HOTSONHONET/Project-Odysseus](https://github.com/HOTSONHONET/Project-Odysseus)
+- Saswat Mishra - 
+<a href="https://twitter.com/TheSaswat" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="saswat-mishra" height="30" width="40" /></a>
+<a href="https://www.linkedin.com/in/saswatmishra71/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="saswat-mishra" height="20" width="20" /></a> 
+<a href="https://github.com/SaswatM-62" target="blank"><img align="center" src="https://user-images.githubusercontent.com/56304060/198507091-d1c28c4f-e278-4a33-be56-d1af5cde8960.png" alt="saswat-mishra" height="20" width="20" /></a> 
+
+- Rudra Prasad Dash - 
+<a href="https://twitter.com/hotsonhonet" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="hotsonhonet" height="30" width="40" /></a>
+<a href="https://linkedin.com/in/hotsonhonet" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="hotsonhonet" height="20" width="20" /></a> 
+<a href="https://github.com/HOTSONHONET/" target="blank"><img align="center" src="https://user-images.githubusercontent.com/56304060/198507091-d1c28c4f-e278-4a33-be56-d1af5cde8960.png" alt="hotsonhonet" height="20" width="20" /></a> 
+
+
+
+Project Link: [GitHub/Project-Odysseus](https://github.com/HOTSONHONET/Project-Odysseus)
+
+
+
 
 
 
