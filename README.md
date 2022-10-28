@@ -5,10 +5,10 @@
     <img src="public/twitter-4-512.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">CryptoTrack</h3>
+  <h3 align="center">Project Odysseus</h3>
 
   <p align="center">
-    A cryptocurrency price tracker built using React.js and CoinGecko API
+    Know your user before you follow
     <br />
     <a href="https://github.com/HOTSONHONET/Project-Odysseus">View Demo</a>
     ·
